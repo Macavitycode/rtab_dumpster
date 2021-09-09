@@ -23,7 +23,6 @@
   </gazebo>
 
 <!-- RGBD Camera -->
-  <!--
   <gazebo reference="kinect_baselink">
     <sensor type="depth" name="camera1">
         <always_on>1</always_on>
@@ -70,7 +69,6 @@
             </plugin>
     </sensor>
   </gazebo>
-  -->
 
   <!-- hokuyo laser scanner-->
   <!--
@@ -108,8 +106,9 @@
   -->
 
   <!-- IMU Sensor-->
+  <!--
   <gazebo reference="imu_link">
-    <gravity>true</gravity>
+    <gravity>false</gravity>
     <sensor name="imu_sensor" type="imu">
       <always_on>true</always_on>
       <update_rate>5.0</update_rate>
@@ -127,6 +126,19 @@
       </plugin>
       <pose>0 0 0 0 0 0</pose>
     </sensor>
+  </gazebo>
+  -->
+
+  <!-- IMU GAZEBO -->
+  <gazebo>
+    <plugin name="imu_plugin" filename="libgazebo_ros_imu.so">
+      <alwaysOn>true</alwaysOn>
+      <bodyName>imu_link</bodyName>
+      <topicName>imu</topicName>
+      <serviceName>imu_service</serviceName>
+      <gaussianNoise>0.0</gaussianNoise>
+      <updateRate>5.0</updateRate>
+    </plugin>
   </gazebo>
 
   <!-- chassis -->
