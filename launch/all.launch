@@ -46,4 +46,7 @@
 <!-- Launch Rviz with SLAM configuration file -->
 <node type="rviz" name="rviz" pkg="rviz" respawn="false" args="-d $(find rtab_dumpster)/rviz/robot_model.rviz"/>
 
+<!-- Launch script-->
+<node pkg="rtab_dumpster" name="script_node" type="dead_reckoning.py" output="screen"/> 
+
 </launch>
